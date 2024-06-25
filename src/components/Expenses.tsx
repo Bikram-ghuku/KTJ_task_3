@@ -5,6 +5,7 @@ type ExpenseEle = {
   amt: number,
   type: string,
   category: string,
+  date: string
 }
 function Expenses() {
   var initExp:ExpenseEle[] = []
@@ -17,7 +18,8 @@ function Expenses() {
   const [cat, setCat] = useState<string>("Food")
   const [amt, setAmt] = useState<number>(0)
   const addRecord = () => {
-    var localExp = [...expenses, {desc, amt, type, category: cat}]
+    let dateTime = new Date()
+    var localExp = [...expenses, {desc, amt, type, category: cat, date: dateTime.toLocaleDateString()}]
     setExpenses(localExp)
     setDesc("")
     setAmt(0)
@@ -44,22 +46,26 @@ function Expenses() {
       </div>
       <div className="exp-log">
         <table className='exp-tab'>
-          <tr>
-            <th>Description</th>
-            <th>Amount</th>
-            <th>Transaction Type</th>
-            <th>Category</th>
-          </tr>
-          {
-            expenses.map((elem) => (
-              <tr>
-                <td>{elem.desc}</td>
-                <td>{"₹"+elem.amt}</td>
-                <td>{elem.type}</td>
-                <td>{elem.category}</td>
-              </tr>
-            ))
-          }
+        <tbody>
+            <tr>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Transaction Type</th>
+              <th>Category</th>
+              <th>Date</th>
+            </tr>
+            {
+              expenses.map((elem, idx) => (
+                <tr key={idx}>
+                  <td>{elem.desc}</td>
+                  <td>{"₹"+elem.amt}</td>
+                  <td>{elem.type}</td>
+                  <td>{elem.category}</td>
+                  <td>{elem.date}</td>
+                </tr>
+              ))
+            }
+          </tbody>
         </table>
       </div>
     </div>
