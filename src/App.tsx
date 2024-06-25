@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <Router basename={"/KTJ_task_3/"}>
+      <Router>
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/home' element={<Home/>} />
