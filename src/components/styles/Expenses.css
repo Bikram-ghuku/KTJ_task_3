@@ -1,0 +1,92 @@
+/* src/Expenses.css */
+
+body {
+    background-color: #1e1e2c;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.exp-main {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #2e2e3c;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.exp-form {
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.exp-inp-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.exp-inp-wrap input,
+.exp-inp-wrap select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #3e3e4c;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.exp-inp-wrap input[type='text'],
+.exp-inp-wrap input[type='number'] {
+    flex: 2;
+}
+
+.exp-submit {
+    background-color: #5c67f2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.exp-submit:hover {
+    background-color: #4753e6;
+}
+
+.exp-log {
+    padding: 20px;
+}
+
+.exp-tab {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.exp-tab th,
+.exp-tab td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #555;
+}
+
+.exp-tab th {
+    background-color: #3e3e4c;
+    color: #e0e0e0;
+}
+
+.exp-tab tr:nth-child(even) {
+    background-color: #2e2e3c;
+}
+
+.exp-tab tr:nth-child(odd) {
+    background-color: #3e3e4c;
+}
+
+.exp-tab tr:hover {
+    background-color: #4e4e5c;
+}
