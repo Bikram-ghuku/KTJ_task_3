@@ -16,10 +16,10 @@ const Navbar = () => {
       <div className={`navbar-menu ${isOpen ? 'is-open' : ''}`}>
         <ul>
             <li>
-                <a href="/">Home</a>
+                <a href="./">Home</a>
             </li>
             <li>
-                <a href="/track">Track</a>
+                <a href="./track">Track</a>
             </li>
         </ul>
       </div>
