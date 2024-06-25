@@ -18,6 +18,7 @@ function Expenses() {
   const [cat, setCat] = useState<string>("Food")
   const [amt, setAmt] = useState<number>(0)
   const addRecord = () => {
+    if(desc=="" || amt == 0) return;
     let dateTime = new Date()
     var localExp = [...expenses, {desc, amt, type, category: cat, date: dateTime.toLocaleDateString()}]
     setExpenses(localExp)
