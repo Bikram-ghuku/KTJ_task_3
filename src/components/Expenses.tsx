@@ -33,9 +33,10 @@ function Expenses() {
 
   const editDesc = (idx: number) => {
     const newDesc = prompt('Enter new description');
+    const newAmt = parseFloat(prompt("enter new amount")!)
     if (newDesc) {
       const updatedExpenses = expenses.map((expense, i) =>
-        i === idx ? { ...expense, desc: newDesc } : expense
+        i === idx ? { ...expense, desc: newDesc, amt: newAmt } : expense
       );
       setExpenses(updatedExpenses);
     }
