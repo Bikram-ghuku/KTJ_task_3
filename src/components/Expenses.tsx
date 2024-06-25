@@ -7,15 +7,21 @@ type ExpenseEle = {
   category: string,
 }
 function Expenses() {
-  const [expenses, setExpenses] = useState<ExpenseEle[]>([])
+  var initExp:ExpenseEle[] = []
+  if(localStorage.getItem("expenses") != null){
+    initExp = JSON.parse(localStorage.getItem("expenses")!)
+  }
+  const [expenses, setExpenses] = useState<ExpenseEle[]>(initExp)
   const [desc, setDesc] = useState<string>("")
   const [type, setType] = useState<string>("Debit")
   const [cat, setCat] = useState<string>("Food")
   const [amt, setAmt] = useState<number>(0)
   const addRecord = () => {
-      setExpenses([...expenses, {desc, amt, type, category: cat}])
-      setDesc("")
-      setAmt(0)
+    var localExp = [...expenses, {desc, amt, type, category: cat}]
+    setExpenses(localExp)
+    setDesc("")
+    setAmt(0)
+    localStorage.setItem("expenses", JSON.stringify(localExp))
   }
   return (
     <div className="exp-main">
