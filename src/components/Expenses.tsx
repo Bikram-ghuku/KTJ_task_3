@@ -40,7 +40,13 @@ function Expenses() {
       setExpenses(updatedExpenses);
     }
   };
-  
+
+  const delEle = (idx: number) => {
+    const updatedExpenses = [...expenses]
+    updatedExpenses.splice(idx, 1)
+    setExpenses(updatedExpenses)
+  }
+
   return (
     <div className="exp-main">
       <div className="exp-form">
@@ -79,7 +85,10 @@ function Expenses() {
                   <td>{elem.type}</td>
                   <td>{elem.category}</td>
                   <td>{elem.date}</td>
-                  <td><button onClick={() => editDesc(idx)}>Edit</button></td>
+                  <td style={{display: "flex", flexDirection: "row"}}>
+                    <button onClick={() => editDesc(idx)} style={{backgroundColor: "transparent"}}>&#x270D;</button>
+                    <button onClick={() => delEle(idx)} style={{backgroundColor: "transparent"}}>&#128465;</button>
+                  </td>
                 </tr>
               ))
             }
