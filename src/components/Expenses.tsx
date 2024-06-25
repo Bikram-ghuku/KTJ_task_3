@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./styles/Expenses.css"
 type ExpenseEle = {
   desc: string,
@@ -24,8 +24,23 @@ function Expenses() {
     setExpenses(localExp)
     setDesc("")
     setAmt(0)
-    localStorage.setItem("expenses", JSON.stringify(localExp))
   }
+
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }, [expenses]);
+
+
+  const editDesc = (idx: number) => {
+    const newDesc = prompt('Enter new description');
+    if (newDesc) {
+      const updatedExpenses = expenses.map((expense, i) =>
+        i === idx ? { ...expense, desc: newDesc } : expense
+      );
+      setExpenses(updatedExpenses);
+    }
+  };
+  
   return (
     <div className="exp-main">
       <div className="exp-form">
@@ -54,6 +69,7 @@ function Expenses() {
               <th>Transaction Type</th>
               <th>Category</th>
               <th>Date</th>
+              <th>Edit</th>
             </tr>
             {
               expenses.map((elem, idx) => (
@@ -63,6 +79,7 @@ function Expenses() {
                   <td>{elem.type}</td>
                   <td>{elem.category}</td>
                   <td>{elem.date}</td>
+                  <td><button onClick={() => editDesc(idx)}>Edit</button></td>
                 </tr>
               ))
             }
