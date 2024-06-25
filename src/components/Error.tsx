@@ -1,9 +1,14 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
+import './styles/Error.css';
 
-function Error() {
+const ErrorPage = () => {
   return (
-    <div>Error</div>
-  )
-}
+    <div className="error-page">
+      <h1>404</h1>
+      <p>Page Not Found</p>
+      <Link to="/">Go Back to Home</Link>
+    </div>
+  );
+};
 
-export default Error
+export default ErrorPage;
