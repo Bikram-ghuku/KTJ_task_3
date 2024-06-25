@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import "./styles/Expenses.css"
 type ExpenseEle = {
   desc: string,
